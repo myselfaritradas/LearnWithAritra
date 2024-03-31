@@ -7,6 +7,5 @@
 
 body{
     background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #9099e6, #8399ec, #7499f1, #6c8df6, #697ffa, #6b70fc, #735ffb);
-    width: 100vw;
-    height: 100vh;
+    padding: 20px;
 }
