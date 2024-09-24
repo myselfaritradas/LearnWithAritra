@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
 body {
   background: linear-gradient(120deg, #0b74b0, #754796, #bd3861);
