@@ -8,11 +8,7 @@
 
 body {
   background: linear-gradient(120deg, #0b74b0, #754796, #bd3861);
-  height: 100vh;
-  padding: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;  
 }
 
 /* 
@@ -40,3 +36,18 @@ body {
   font-weight: 200;
   font-style: normal;
 }
+
+#circular-myimage-indexpage{
+  border-radius: 100%;
+  max-width: 45%;
+  height: auto;
+}
+
+.hover-effect{
+  transition: 150ms ease-in-out;
+}
+
+.hover-effect:hover{
+  scale: 1.01;
+}
+
