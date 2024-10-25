@@ -57,17 +57,15 @@
                     </div>
                     <div class="row mt-5">
                         <div class="col" id="studentID-inp" hidden>
-                            <input type="number" class="form-control w-100 h-100 p-3 fs-4"
-                                placeholder="Enter Student ID">
+                            <input type="text" class="form-control w-100 h-100 p-3 fs-4" placeholder="Enter Student ID">
                         </div>
                         <div class="col" id="otp-inp" hidden>
-                            <input type="number" class="form-control w-100 h-100 p-3 fs-4" placeholder="Enter OTP">
+                            <input type="text" class="form-control w-100 h-100 p-3 fs-4" placeholder="Enter OTP">
                         </div>
                         <div class="col">
                             <input type="button" class="btn btn-primary w-100 h-100 p-3 fs-4 border-2"
                                 value="Go to Dashboard" id="login-btn">
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -75,11 +73,30 @@
     </div>
 
     <script>
-        document.querySelector("#login-btn").addEventListener("click", inputStudentID)
 
-        function inputStudentID() {
-            document.querySelector("#login-btn").value = 'Seek Access';
-            document.querySelector("#studentID-inp").removeAttribute("hidden");
+        document.querySelector("#login-btn").addEventListener("click", loginProcedure)
+
+        function loginProcedure() {
+
+            let id = document.querySelector("#studentID-inp");
+            let otp = document.querySelector("#otp-inp");
+
+            console.log(id.children[0].value);
+            console.log(otp.children[0].value);
+
+            if (id.children[0].value == '' && otp.children[0].value == '') {
+                document.querySelector("#login-btn").value = 'Seek Access';
+                document.querySelector("#studentID-inp").removeAttribute("hidden");
+            } else if (id.children[0].value != '' && otp.children[0].value == '') {
+                document.querySelector("#login-btn").value = 'Login';
+                document.querySelector("#otp-inp").removeAttribute("hidden");
+            } else if (id.children[0].value == 'user' && otp.children[0].value == '8637') {
+                window.location.assign('dashboard.html');
+                id.children[0].value = ''
+                otp.children[0].value = ''
+            } else {
+                alert('Invalid Login Credentials')
+            }
         }
 
     </script>
