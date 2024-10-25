@@ -33,17 +33,56 @@
         rel="stylesheet">
 </head>
 
-<body class="p-5 vh-100">
-    <div class="w-100">
-        <div class="container-xxl bg-light rounded-1 p-3 display-6 rounded-4">
-            <div class="row">
-                <div class="montserrat-regular">🚩 Site is <span class="montserrat-black">Under Maintainance!</span>
-                    ⚙️
+<body class="p-5 align-content-center">
+    <div class="container bg-light p-7">
+        <div class="row">
+            <div class="col align-content-center">
+                <img src="images/My Image Gradient BG.png" alt="" id="circular-myimage-indexpage">
+            </div>
+            <div class="col align-content-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <span class="fw-bold display-4 montserrat-thin opacity-50">Learning Computer?</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="fw-bold display-1">
+                                <span class="montserrat-black">Learn</span><span
+                                    class="montserrat-black">with</span><span
+                                    class="montserrat-black">Aritra</span><span class="montserrat-black">Sir</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col" id="studentID-inp" hidden>
+                            <input type="number" class="form-control w-100 h-100 p-3 fs-4"
+                                placeholder="Enter Student ID">
+                        </div>
+                        <div class="col" id="otp-inp" hidden>
+                            <input type="number" class="form-control w-100 h-100 p-3 fs-4" placeholder="Enter OTP">
+                        </div>
+                        <div class="col">
+                            <input type="button" class="btn btn-primary w-100 h-100 p-3 fs-4 border-2"
+                                value="Go to Dashboard" id="login-btn">
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            
         </div>
     </div>
+
+    <script>
+        document.querySelector("#login-btn").addEventListener("click", inputStudentID)
+
+        function inputStudentID() {
+            document.querySelector("#login-btn").value = 'Seek Access';
+            document.querySelector("#studentID-inp").removeAttribute("hidden");
+        }
+
+    </script>
 </body>
 
 </html>

@@ -16,6 +16,10 @@ body {
    <weight>: Use a value from 100 to 900 
 */
 
+.container{
+  border-radius: 20pt;
+}
+
 .montserrat-black {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -39,8 +43,9 @@ body {
 
 #circular-myimage-indexpage{
   border-radius: 100%;
-  max-width: 45%;
+  max-width: 100%;
   height: auto;
+  border: 5pt solid rgba(0, 0, 0, 0.158);
 }
 
 .hover-effect{
@@ -49,5 +54,12 @@ body {
 
 .hover-effect:hover{
   scale: 1.01;
+}
+
+/* Hide Arrows From Input Number - w3 School */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
