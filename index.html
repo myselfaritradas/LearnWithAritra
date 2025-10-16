@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LearnWithAritra — Future Wings Computer Academy</title>
+    <meta name="description"
+        content="Simple, clean landing page for LearnWithAritra / Future Wings Computer Academy — notes, classes, and computer education." />
+    <meta property="og:title" content="LearnWithAritra — Future Wings Computer Academy" />
+    <meta property="og:description"
+        content="Notes, classes, and computer education for ICSE, CBSE, WB Board, BCA/BTech, and more." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            /* slate-900 */
+            --card: #0b1226;
+            /* slightly darker for sections */
+            --text: #e5e7eb;
+            /* gray-200 */
+            --muted: #94a3b8;
+            /* slate-400 */
+            --brand: #38bdf8;
+            /* sky-400 */
+            --brand-2: #22d3ee;
+            /* cyan-400 */
+            --accent: #facc15;
+            /* amber-400 */
+            --surface: #111827;
+            /* gray-900 */
+            --ring: rgba(56, 189, 248, .35);
+            --radius: 18px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, .35);
+            --shadow-soft: 0 6px 18px rgba(0, 0, 0, .25);
+            --maxw: 1100px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .righteous-regular {
+            font-family: "Righteous", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 800px at 10% -10%, rgba(56, 189, 248, .12), transparent),
+                radial-gradient(900px 600px at 110% 0%, rgba(34, 211, 238, .10), transparent),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.55;
+            letter-spacing: .2px;
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none
+        }
+
+        a:hover {
+            opacity: .9
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(180%) blur(10px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, .85), rgba(15, 23, 42, .6));
+            border-bottom: 1px solid rgba(148, 163, 184, .15);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background:
+                radial-gradient(10px 10px at 70% 30%, var(--accent), transparent),
+                conic-gradient(from 220deg, var(--brand), var(--brand-2));
+            box-shadow: 0 2px 10px rgba(56, 189, 248, .55);
+        }
+
+        .brand h1 {
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: .3px
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        nav a {
+            color: var(--text)
+        }
+
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: var(--text);
+            font-size: 1.3rem
+        }
+
+        /* Hero */
+        .hero {
+            padding: 72px 0 36px
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 28px;
+            align-items: center
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, .1);
+            border: 1px solid rgba(56, 189, 248, .25);
+            color: var(--brand)
+        }
+
+        .title {
+            font-size: clamp(28px, 4.8vw, 52px);
+            line-height: 1.1;
+            margin: 12px 0 10px;
+            font-weight: 800
+        }
+
+        .subtitle {
+            color: var(--muted);
+            max-width: 54ch
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, .2);
+            background: #0b1226;
+            color: #e7e7e7;
+            box-shadow: var(--shadow-soft)
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: #00111a;
+            border-color: transparent;
+            font-weight: 700
+        }
+
+        .btn:hover {
+            transform: translateY(-1px)
+        }
+
+        .hero-visual {
+            background: linear-gradient(180deg, rgba(56, 189, 248, .14), rgba(34, 211, 238, .06)), #0b1226;
+            border: 1px solid rgba(148, 163, 184, .15);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(450px 180px at 70% -10%, rgba(250, 204, 21, .10), transparent);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, .2);
+            background: #0e152b;
+            color: #cbd5e1;
+            font-size: .9rem
+        }
+
+        .stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 18px;
+            flex-wrap: wrap
+        }
+
+        .stat {
+            background: #0e152b;
+            border: 1px solid rgba(148, 163, 184, .15);
+            border-radius: 14px;
+            padding: 14px 16px;
+            min-width: 150px
+        }
+
+        .stat .n {
+            font-size: 1.4rem;
+            font-weight: 800
+        }
+
+        .stat .l {
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        /* Sections */
+        section {
+            padding: 52px 0;
+            border-top: 1px solid rgba(148, 163, 184, .12)
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            margin: 0 0 18px
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px
+        }
+
+        .grid.cards {
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .card {
+            background: #0b1226;
+            border: 1px solid rgba(148, 163, 184, .15);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow-soft)
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        /* Testimonial */
+        .quote {
+            font-size: 1.05rem;
+            color: #e6f4ff
+        }
+
+        .quote small {
+            display: block;
+            color: var(--muted);
+            margin-top: 6px
+        }
+
+        /* Newsletter */
+        .newsletter {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .input {
+            flex: 1;
+            min-width: 220px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, .25);
+            background: #0b1226;
+            color: var(--text);
+            outline: none
+        }
+
+        .input:focus {
+            box-shadow: 0 0 0 4px var(--ring)
+        }
+
+        /* Footer */
+        footer {
+            padding: 28px 0;
+            color: var(--muted)
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero .wrap {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (max-width: 760px) {
+            nav ul {
+                display: none
+            }
+
+            .menu-btn {
+                display: inline-block
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo" aria-hidden="true"></div>
+                <h1>LearnWithAritra • FWCA</h1>
+            </div>
+            <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#notes">Notes</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container wrap">
+                <div>
+                    <span class="badge">🚀 Simple • Neat • Fast</span>
+                    <h2 class="title">Computer learning made clear and practical.</h2>
+                    <p class="subtitle">Future Wings Computer Academy (since 2018) — 5000+ learners empowered in
+                        ICSE/CBSE/WB Board, Java, Python, C, Data Structures, Office, and more.</p>
+                    <div class="cta">
+                        <a class="btn primary" href="#courses">Explore Courses</a>
+                        <a class="btn" href="#notes">Browse Notes</a>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="n">5000+</div>
+                            <div class="l">Students Taught</div>
+                        </div>
+                        <div class="stat">
+                            <div class="n">2018 →</div>
+                            <div class="l">Trusted Since</div>
+                        </div>
+                        <div class="stat">
+                            <div class="n">ICSE • WB • BCA</div>
+                            <div class="l">Boards & Streams</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <h3 style="margin:0 0 12px">What can you learn?</h3>
+                    <div class="chips" aria-label="Popular topics">
+                        <span class="chip">Java (ICSE IX–X)</span>
+                        <span class="chip">Python (WB XII)</span>
+                        <span class="chip">C & Data Structures</span>
+                        <span class="chip">MS Office 2007</span>
+                        <span class="chip">HTML, CSS, JS</span>
+                        <span class="chip">SQL Basics</span>
+                    </div>
+                    <div class="stats" style="margin-top:20px">
+                        <div class="stat">
+                            <div class="n">Notes</div>
+                            <div class="l">Bilingual (BN/EN)</div>
+                        </div>
+                        <div class="stat">
+                            <div class="n">Exercises</div>
+                            <div class="l">MCQ • SA • Coding</div>
+                        </div>
+                        <div class="stat">
+                            <div class="n">Projects</div>
+                            <div class="l">From Basics to Pro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses / Highlights -->
+        <section id="courses">
+            <div class="container">
+                <h2 class="section-title">Highlights</h2>
+                <div class="grid cards">
+                    <article class="card">
+                        <h3>Board‑wise Notes</h3>
+                        <p>ICSE/CBSE/WB Board short notes with examples, bilingual format, and past‑paper style
+                            practice.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Programming Track</h3>
+                        <p>Java, Python, and C with step‑by‑step problems, data structures, and exam‑oriented guidance.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Office & Productivity</h3>
+                        <p>Word, Excel, PowerPoint (2007 focus) with labs, shortcuts, and mini projects for real‑life
+                            tasks.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes -->
+        <section id="notes">
+            <div class="container">
+                <h2 class="section-title">Latest Notes</h2>
+                <div class="grid cards" style="grid-template-columns:repeat(3,1fr)">
+                    <article class="card">
+                        <h3>ICSE Class 9 — Java Basics</h3>
+                        <p>Tokens, data types, operators, and input — crisp explanations with examples.</p>
+                    </article>
+                    <article class="card">
+                        <h3>WB Class 12 — Python Strings</h3>
+                        <p>Common methods, pitfalls, and quick exercises with solutions.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Excel 2007 — DATEDIF</h3>
+                        <p>Practice dataset + questions + answers for date calculations.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">What learners say</h2>
+                <div class="card">
+                    <p class="quote">“Straight to the point and exam‑friendly. The bilingual notes and coding exercises
+                        helped me score better and build confidence.”
+                        <small>— Student, Berhampore</small>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter / CTA -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">Stay updated</h2>
+                <p class="subtitle">Get new notes, practice sets, and project ideas directly in your inbox.</p>
+                <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks! You\'re subscribed.');">
+                    <input class="input" type="email" placeholder="your@email.com" aria-label="Email address"
+                        required />
+                    <button class="btn primary" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="grid" style="grid-template-columns:1.1fr .9fr; gap:18px">
+                    <div class="card">
+                        <h3>Get in touch</h3>
+                        <p class="subtitle">Berhampore, Murshidabad • Future Wings Computer Academy</p>
+                        <p><strong>Email:</strong> <a
+                                href="mailto:hello@learnwitharitra.com">hello@learnwitharitra.com</a></p>
+                        <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@learnwitharitra" target="_blank"
+                                rel="noopener">@learnwitharitra</a></p>
+                    </div>
+                    <div class="card">
+                        <h3>Quick Links</h3>
+                        <ul style="margin:0;padding-left:18px;color:var(--muted)">
+                            <li><a href="#courses">Courses</a></li>
+                            <li><a href="#notes">Notes</a></li>
+                            <li><a href="#about">Newsletter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+            <div>© <span id="year"></span> <span class="righteous-regular gap-x-2">impression</span><span>Coding</span>
+            </div>
+            <div>Made with ♥ for learners</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const m = document.getElementById('menu');
+            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+            if (m.style.display === 'flex') {
+                m.style.flexDirection = 'column';
+                m.style.gap = '12px';
+                m.style.padding = '14px 0';
+            }
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
